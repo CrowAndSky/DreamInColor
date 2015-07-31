@@ -1,0 +1,42 @@
+html, body, div, span, section, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+ul, li {
+	list-style: none;
+}
+
+html,
+body,
+ul {
+	/*height: 100%;*/
+}
+
+.page-wrapper {
+	background: #212132;
+	height: 100vh;
+	width: 100%;
+}
+
+.scene-grid {
+	align-content: space-between;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	height: 100%;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.scene-grid__scene {
+	box-sizing: border-box;
+	height: 33.3333333%;
+	width: 33.33333%;
+}
+
+h1 {
+	display: none;
+}
+
+/*# sourceMappingURL=style.css.map */
