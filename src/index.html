@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="dreamInColor">
+<html>
 <head lang="en">
     <meta charset="UTF-8">
     <title>Dream in Color</title>
@@ -7,9 +7,20 @@
 </head>
 <body>
 <h1>Dream in Color</h1>
-<div class="page-wrapper">
+<div ng-app="dreamInColor" class="page-wrapper favorites-exist history-exists">
+    <ul ng-controller="ColorList as history" class="history-list color-list">
+        <li ng-repeat="color in history.bootStrapColors" class="color-list__item index-{{$index}}" style="background-color:#{{color}};">
+        </li>
+    </ul>
     <ul ng-controller="SceneGrid as grid" class="scene-grid">
-        <li ng-repeat="color in grid.bootStrapColors" class="scene-grid__scene" style="background-color:#{{color}};"></li>
+        <li ng-repeat="color in grid.bootStrapColors" class="scene-grid__scene" style="background-color:#{{color}};">
+            <!--<div class="room-scene">-->
+                <img src="./images/room.jpg" class="room-scene" alt=""/>
+            <!--</div>-->
+        </li>
+    </ul>
+    <ul ng-controller="ColorList as favorites" class="favorite-list color-list">
+        <li ng-repeat="color in favorites.bootStrapColors" class="color-list__item" style="background-color:#{{color}};"></li>
     </ul>
 </div>
 

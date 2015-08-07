@@ -1,4 +1,5 @@
 html, body, div, span, section, ul, li {
+	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
@@ -7,36 +8,177 @@ ul, li {
 	list-style: none;
 }
 
-html,
-body,
-ul {
-	/*height: 100%;*/
-}
-
 .page-wrapper {
 	background: #212132;
+	display: flex;
+	flex-direction: column;
 	height: 100vh;
 	width: 100%;
 }
 
 .scene-grid {
-	align-content: space-between;
 	display: flex;
-	flex-direction: row;
 	flex-wrap: wrap;
-	height: 100%;
-	justify-content: space-between;
+	height: 80%;
 	width: 100%;
 }
 
 .scene-grid__scene {
-	box-sizing: border-box;
 	height: 33.3333333%;
+	overflow: hidden;
+	position: relative;
 	width: 33.33333%;
 }
+
+.room-scene {
+	bottom: -9999px;
+	flex: 1 1 auto;
+	left: -9999px;
+	margin: auto;
+	position: absolute;
+	right: -9999px;
+	top: -9999px;
+}
+
+.color-list {
+	display: flex;
+	height: 10%;
+	width: 100%;
+}
+
+.color-list__item {
+	align-items: center;
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: center;
+	max-width: 10em;
+}
+
+@media screen and (min-aspect-ratio: 1/1) {
+	.page-wrapper {
+		flex-direction: row;
+	}
+
+	.scene-grid {
+		height: 100%;
+		width: 85%;
+	}
+
+	.room-scene {
+		max-height: 115%;
+		max-width: 115%;
+	}
+
+	.color-list {
+		height: 100%;
+		flex-direction: column;
+		width: 7.5%;
+	}
+
+	.color-list__item {
+		max-height: 12em;
+		max-width: inherit;
+	}
+
+}
+
+@media screen and (max-aspect-ratio: 3/4), (min-aspect-ratio: 4/3) {
+	.room-scene {
+		max-height: 125%;
+		max-width: 125%;
+	}
+}
+
+@media screen and (max-aspect-ratio: 2/3), (min-aspect-ratio: 3/2) {
+	.room-scene {
+		max-height: 150%;
+		max-width: 150%;
+	}
+}
+
+@media screen and (min-aspect-ratio: 2/1), (max-aspect-ratio: 1/2) {
+	.room-scene {
+		max-height: 175%;
+		max-width: 175%;
+	}
+}
+
+@media screen and (min-aspect-ratio: 5/2), (max-aspect-ratio: 2/5) {
+	.room-scene {
+		max-height: 200%;
+		max-width: 200%;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.scene-grid__scene:nth-child(n+5) {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1024px) and (min-aspect-ratio: 1/1) {
+	.color-list {
+		width: 7.5%;
+	}
+
+	.scene-grid {
+		width: 85%;
+	}
+}
+
+@media screen and (min-width: 1150px) and (min-aspect-ratio: 1/1) {
+	.color-list {
+		width: 5%;
+	}
+
+	.scene-grid {
+		width: 90%;
+	}
+}
+
+
+
+
+
+
+
+
 
 h1 {
 	display: none;
 }
 
-/*# sourceMappingURL=style.css.map */
+
+/*# sourceMappingURL=style.css.map
+
+
+html,
+body,
+ul {
+	height: 100%;
+}
+
+.scene-grid {
+	align-content: space-between;
+	display: flex;
+	flex: 1 1 auto;
+	//flex-direction: row;
+	flex-wrap: wrap;
+	height: 100%;
+	//justify-content: space-between;
+	//width: 100%;
+}
+
+.favorites-exist .scene-grid,
+.history-exists .scene-grid{
+	//width: 90%;
+}
+
+.favorites-exist.history-exists .scene-grid {
+	//width: 80%;
+}
+
+
+
+
+*/
