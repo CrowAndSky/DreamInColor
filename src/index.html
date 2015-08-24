@@ -6,29 +6,23 @@
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-<h1>Dream in Color</h1>
+
 <div ng-app="dreamInColor" class="page-wrapper favorites-exist history-exists">
-    <ul ng-controller="ColorList as history" class="history-list color-list">
-        <li ng-repeat="color in history.bootStrapColors" class="color-list__item index-{{$index}}" style="background-color:#{{color}};">
-        </li>
-    </ul>
+    <color-list-items class="color-list"></color-list-items>
     <ul ng-controller="SceneGrid as grid" class="scene-grid">
         <li ng-repeat="color in grid.bootStrapColors" class="scene-grid__scene" style="background-color:#{{color}};">
-            <!--<div class="room-scene">-->
-                <img src="./images/room.jpg" class="room-scene" alt=""/>
-            <!--</div>-->
+            <img src="./images/room.jpg" class="room-scene" alt=""/>
         </li>
     </ul>
-    <ul ng-controller="ColorList as favorites" class="favorite-list color-list">
-        <li ng-repeat="color in favorites.bootStrapColors" class="color-list__item" style="background-color:#{{color}};"></li>
-    </ul>
+    <!--<ul ng-controller="ColorList as favorites" class="favorite-list color-list">-->
+        <!--<li ng-repeat="color in favorites.bootStrapColors" class="color-list__item" style="background-color:#{{color}};"></li>-->
+    <!--</ul>-->
 </div>
 
 </body>
 
 <script src="../lib/jquery-2.1.4.min.js" type="text/javascript"></script>
-<script src="../lib/angular.min.js" type="text/javascript"></script>
-<script src="js/colors.js" type="text/javascript"></script>
-<script src="js/app.js" type="text/javascript"></script>
+<script src="../lib/angular.js" type="text/javascript"></script>
+<script src="../dist/js/dreamInColor.js" type="text/javascript"></script>
 
 </html>
