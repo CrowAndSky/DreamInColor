@@ -12,7 +12,7 @@ ng-src="model.property"
 ng-click="expression"
     Tabbed UI example:
         ng-click="tab = this.index"
-        bg-show="tab === this.index"
+        ng-show="tab === this.index"
         ng-class="{ active:tab === this.index }"
         ng-init="tab = 1"
 
@@ -32,7 +32,7 @@ ng-click="expression"
 
 <div ng-controller="PanelController as panel">
 <li ng-class="{active: this.isSet(model.index)}">
-    <a href ng-clcick="panel.setTab(model.index)">Copy</a>
+    <a href ng-click="panel.setTab(model.index)">Copy</a>
 </li>
 
 

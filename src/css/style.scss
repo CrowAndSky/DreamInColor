@@ -8,18 +8,34 @@ ul, li {
 	list-style: none;
 }
 
+img {
+	opacity: 0;
+}
+
+.color-list__item:hover {
+	border: 2px solid green;
+}
+
 .page-wrapper {
-	background: #212132;
+	background: #fff;
+	//background: #212132;
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
 	width: 100%;
 }
 
-.scene-grid {
+.scene-grid__container{
+	//display: flex;
+	//flex-wrap: wrap;
+	height: 80%;
+	width: 100%;
+}
+
+.scene-grid__list{
 	display: flex;
 	flex-wrap: wrap;
-	height: 80%;
+	height: 100%;
 	width: 100%;
 }
 
@@ -67,7 +83,7 @@ color-list-items {
 		flex-direction: row;
 	}
 
-	.scene-grid {
+	.scene-grid__container{
 		height: 100%;
 		width: 80%;
 	}
@@ -111,22 +127,22 @@ color-list-items {
 
 @media screen and (max-aspect-ratio: 3/4), (min-aspect-ratio: 4/3) {
 	.room-scene {
-		max-height: 150%;
-		max-width: 150%;
+		max-height: 157%;
+		max-width: 157%;
 	}
 }
 
 @media screen and (max-aspect-ratio: 24/17), (min-aspect-ratio: 17/24) {
 	.room-scene {
-		max-height: 178%;
-		max-width: 178%;
+		max-height: 186%;
+		max-width: 186%;
 	}
 }
 
 @media screen and (max-aspect-ratio: 2/3), (min-aspect-ratio: 3/2) {
 	.room-scene {
-		max-height: 200%;
-		max-width: 200%;
+		max-height: 212%;
+		max-width: 212%;
 	}
 }
 
@@ -149,7 +165,7 @@ color-list-items {
 		width: 7.5%;
 	}
 
-	.scene-grid {
+	.scene-grid__container{
 		width: 85%;
 	}
 }
@@ -159,7 +175,7 @@ color-list-items {
 		width: 5%;
 	}
 
-	.scene-grid {
+	.scene-grid__container{
 		width: 90%;
 	}
 }
@@ -178,7 +194,7 @@ ul {
 	height: 100%;
 }
 
-.scene-grid {
+.scene-grid__container{
 	align-content: space-between;
 	display: flex;
 	flex: 1 1 auto;
@@ -194,7 +210,7 @@ ul {
 	//width: 90%;
 }
 
-.favorites-exist.history-exists .scene-grid {
+.favorites-exist.history-exists .scene-grid__container{
 	//width: 80%;
 }
 

@@ -7,13 +7,10 @@
 </head>
 <body>
 
-<div ng-app="dreamInColor" class="page-wrapper favorites-exist history-exists">
+<div ng-app="dreamInColor" ng-controller="DreamInColorApp as app" class="page-wrapper favorites-exist history-exists">
     <color-list-items class="color-list"></color-list-items>
-    <ul ng-controller="SceneGrid as grid" class="scene-grid">
-        <li ng-repeat="color in grid.bootStrapColors" class="scene-grid__scene" style="background-color:#{{color}};">
-            <img src="./images/room.jpg" class="room-scene" alt=""/>
-        </li>
-    </ul>
+    <scene-grid-items class="scene-grid__container"></scene-grid-items>
+
     <!--<ul ng-controller="ColorList as favorites" class="favorite-list color-list">-->
         <!--<li ng-repeat="color in favorites.bootStrapColors" class="color-list__item" style="background-color:#{{color}};"></li>-->
     <!--</ul>-->
