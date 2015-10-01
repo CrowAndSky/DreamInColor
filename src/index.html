@@ -8,8 +8,10 @@
 <body>
 
 <div ng-app="dreamInColor" ng-controller="DreamInColorApp as app" class="page-wrapper favorites-exist history-exists">
-    <color-list-items class="color-list"></color-list-items>
+    <color-list-items class="color-list history-list"></color-list-items>
     <scene-grid-items class="scene-grid__container"></scene-grid-items>
+    <color-list-items class="color-list favorites-list"></color-list-items>
+    <color-detail></color-detail>
 
     <!--<ul ng-controller="ColorList as favorites" class="favorite-list color-list">-->
         <!--<li ng-repeat="color in favorites.bootStrapColors" class="color-list__item" style="background-color:#{{color}};"></li>-->

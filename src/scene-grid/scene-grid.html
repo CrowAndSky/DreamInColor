@@ -1,5 +1,5 @@
 <ul class="scene-grid__list">
-    <li ng-repeat="color in appState.bootStrapColors" class="scene-grid__scene" style="background-color:#{{color}};">
+    <li ng-repeat="color in appState.historyColors" ng-click="sceneGridItems.displayColorDetail(color)" class="scene-grid__scene" style="background-color:#{{color}};">
         <img src="./images/room.jpg" class="room-scene" alt=""/>
     </li>
 </ul>

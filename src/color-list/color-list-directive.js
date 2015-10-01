@@ -8,19 +8,27 @@ angular.module('colorList')
             restrict: 'E',
             templateUrl: './color-list/color-list.html',
             controller: function($scope) {
-                $scope.setCurrentColor = function(newColor) {
-                    console.log("clkicked");
-                    console.log(newColor);
-                    appState.bootStrapColors = [newColor];
-                };
+                var thatAppState = $scope.appState;
 
-                $scope.testCont = function() {
-                    console.log("clicked it");
+                this.setCurrentColor = function(newColor) {
+                    //console.log("clkicked");
+                    //console.log(newColor);
+                    thatAppState.bootStrapColors = [newColor];
                 };
+                //appState.isColorDetailDisplayed" style="background-color:#{{appState.currentDetailColor
 
-                //$scope.bootStrapColors = ["90A6BE","2A426A","DB843C","BE4931","FBB07D","8CBF3E","65BAAD"];
+
+
+
+                //this.testCont = function() {
+                //    console.log("controller test");
+                //};
+                //
+                //$scope.testString = "string1";
+                //
+                //this.localBootStrapColors = ["90A6BE","2A426A","DB843C","BE4931","FBB07D","8CBF3E","65BAAD"];
             },
-            controllerAs: 'colorListItem'
+            controllerAs: 'colorListItems'
     };
 
 });

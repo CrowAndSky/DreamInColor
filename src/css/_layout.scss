@@ -1,0 +1,34 @@
+.page-wrapper {
+	background: #fff;
+	//background: #212132;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+	.page-wrapper {
+		flex-direction: row;
+	}
+
+	.scene-grid__container{
+		height: 100%;
+		width: 80%;
+	}
+
+	.scene-grid__scene {
+		height: 33.33333333%;
+		width: 33.33333333%;
+	}
+
+	.scene-grid__scene:nth-child(n+5) {
+		display: block;
+	}
+
+	.color-list {
+		height: 100%;
+		flex-direction: column;
+		width: 10%;
+	}
+}

@@ -8,177 +8,27 @@ ul, li {
 	list-style: none;
 }
 
-img {
-	opacity: 0;
-}
+//.color-list__item:hover {
+//	border: 2px solid green;
+//}
 
-.color-list__item:hover {
-	border: 2px solid green;
-}
 
-.page-wrapper {
-	background: #fff;
-	//background: #212132;
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	width: 100%;
-}
+@import "_color-list";
+@import "_color-detail";
+@import "_room-scene";
+@import "_scene-grid";
 
-.scene-grid__container{
-	//display: flex;
-	//flex-wrap: wrap;
-	height: 80%;
-	width: 100%;
-}
 
-.scene-grid__list{
-	display: flex;
-	flex-wrap: wrap;
-	height: 100%;
-	width: 100%;
-}
-
-.scene-grid__scene {
-	height: 50%;
-	overflow: hidden;
-	position: relative;
-	width: 50%;
-}
-
-.scene-grid__scene:nth-child(n+5) {
-	display: none;
-}
-
-.room-scene {
-	bottom: -9999px;
-	flex: 1 1 auto;
-	left: -9999px;
-	margin: auto;
-	position: absolute;
-	right: -9999px;
-	top: -9999px;
-}
-
-color-list-items {
-
-}
-
-.color-list {
-	display: flex;
-	height: 10%;
-	width: 100%;
-}
-
-.color-list__item {
-	align-items: center;
-	display: flex;
-	flex: 1 1 auto;
-	justify-content: center;
-	max-width: 10em;
-}
-
-@media screen and (min-width: 768px) {
-	.page-wrapper {
-		flex-direction: row;
-	}
-
-	.scene-grid__container{
-		height: 100%;
-		width: 80%;
-	}
-
-	.scene-grid__scene {
-		height: 33.33333333%;
-		width: 33.33333333%;
-	}
-
-	.scene-grid__scene:nth-child(n+5) {
-		display: block;
-	}
+@import "_layout";
 
 
 
-	.color-list {
-		height: 100%;
-		flex-direction: column;
-		width: 10%;
-	}
-}
 
-.room-scene {
-	max-height: 150%;
-	max-width: 150%;
-}
 
-@media screen and (min-aspect-ratio: 1/1) {
-	.room-scene {
-		max-height: 125%;
-		max-width: 125%;
-	}
-}
 
-@media screen and (max-aspect-ratio: 4/5), (min-aspect-ratio: 5/4) {
-	.room-scene {
-		max-height: 134%;
-		max-width: 134%;
-	}
-}
 
-@media screen and (max-aspect-ratio: 3/4), (min-aspect-ratio: 4/3) {
-	.room-scene {
-		max-height: 157%;
-		max-width: 157%;
-	}
-}
 
-@media screen and (max-aspect-ratio: 24/17), (min-aspect-ratio: 17/24) {
-	.room-scene {
-		max-height: 186%;
-		max-width: 186%;
-	}
-}
 
-@media screen and (max-aspect-ratio: 2/3), (min-aspect-ratio: 3/2) {
-	.room-scene {
-		max-height: 212%;
-		max-width: 212%;
-	}
-}
-
-@media screen and (max-aspect-ratio: 1/2), (min-aspect-ratio: 2/1) {
-	.room-scene {
-		max-height: 250%;
-		max-width: 250%;
-	}
-}
-
-@media screen and (max-aspect-ratio: 2/5), (min-aspect-ratio: 5/2) {
-	.room-scene {
-		max-height: 320%;
-		max-width: 320%;
-	}
-}
-
-@media screen and (min-width: 1024px) and (min-aspect-ratio: 1/1) {
-	.color-list {
-		width: 7.5%;
-	}
-
-	.scene-grid__container{
-		width: 85%;
-	}
-}
-
-@media screen and (min-width: 1150px) and (min-aspect-ratio: 1/1) {
-	.color-list {
-		width: 5%;
-	}
-
-	.scene-grid__container{
-		width: 90%;
-	}
-}
 
 
 
