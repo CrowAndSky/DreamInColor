@@ -8,11 +8,6 @@ ul, li {
 	list-style: none;
 }
 
-//.color-list__item:hover {
-//	border: 2px solid green;
-//}
-
-
 @import "_color-list";
 @import "_color-detail";
 @import "_room-scene";
@@ -20,51 +15,3 @@ ul, li {
 
 
 @import "_layout";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*# sourceMappingURL=style.css.map
-
-
-html,
-body,
-ul {
-	height: 100%;
-}
-
-.scene-grid__container{
-	align-content: space-between;
-	display: flex;
-	flex: 1 1 auto;
-	//flex-direction: row;
-	flex-wrap: wrap;
-	height: 100%;
-	//justify-content: space-between;
-	//width: 100%;
-}
-
-.favorites-exist .scene-grid,
-.history-exists .scene-grid{
-	//width: 90%;
-}
-
-.favorites-exist.history-exists .scene-grid__container{
-	//width: 80%;
-}
-
-
-
-
-*/
