@@ -7,7 +7,34 @@
 </head>
 <body>
 
+
+
 <div ng-app="dreamInColor" ng-controller="DreamInColorApp as app" class="page-wrapper favorites-exist history-exists">
+    <svg class="svg-defs" version="1.1" xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000" preserveAspectRatio="xMinYMin meet" xmlns="">
+        <defs>
+            <linearGradient id="linearGradient" x1="10%" y1="0" x2="0" y2="50%">
+                <stop class="stop1" offset="0%" stop-color="black" />
+                <stop class="stop2" offset="50%" stop-color="white" />
+                <stop class="stop3" offset="100%" stop-color="white" />
+            </linearGradient>
+
+            <mask id="wallMask" preserveAspectRatio="xMinYMin meet">
+                <g class="group">
+                </g>
+            </mask>
+
+            <filter ng-repeat="color in appState.historyColors" id="scene__filter--{{$index}}">
+                <feFlood id="stain-sample__filter--tint" flood-color="#{{color}}" result="tintHue" />
+                <feBlend mode="multiply" in="tintHue" in2="SourceGraphic" result="darkenedSample" />
+                <!--<feComposite in="SourceGraphic" in2="BackgroundImage" operator="arithmetic" k1="0" k2="0.5" k3="0.5" k4="-0.25" />-->
+                <!--<feColorMatrix type="hueRotate" values="{{$index * 20}}"/>-->
+
+            </filter>
+
+        </defs>
+    </svg>
+
     <color-list-items class="color-list history-list"></color-list-items>
     <scene-grid-items class="scene-grid__container"></scene-grid-items>
     <color-list-items class="color-list favorites-list"></color-list-items>
