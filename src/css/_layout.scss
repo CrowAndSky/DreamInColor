@@ -6,15 +6,52 @@
 	width: 100%;
 }
 
-@media screen and (min-width: 768px) {
-	.page-wrapper {
-		flex-direction: row;
-	}
+.color-list {
+	display: flex;
+	height: 10%;
+	width: 100%;
+}
 
-	.scene-grid__container{
-		height: 100%;
-		width: 80%;
-	}
+.color-list__item {
+	align-items: center;
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: center;
+	max-width: 10em;
+}
+
+.scene-grid__container{
+	height: 80%;
+	width: 100%;
+}
+
+.scene-grid__list{
+	display: flex;
+	flex-wrap: wrap;
+	height: 100%;
+	width: 100%;
+}
+
+.scene-grid__scene {
+	height: 50%;
+	overflow: hidden;
+	position: relative;
+	width: 50%;
+}
+
+.scene-grid__scene:nth-child(n+5) {
+	display: none;
+}
+
+@media screen and (min-width: 768px) {
+	//.page-wrapper {
+	//	flex-direction: row;
+	//}
+	//
+	//.scene-grid__container{
+	//	height: 100%;
+	//	width: 80%;
+	//}
 
 	.scene-grid__scene {
 		height: 33.33333333%;
@@ -25,9 +62,102 @@
 		display: block;
 	}
 
+	//.color-list {
+	//	height: 100%;
+	//	flex-direction: column;
+	//	width: 10%;
+	//}
+}
+
+@media screen and (min-aspect-ratio: 20/19) {
+	.page-wrapper {
+		flex-direction: row;
+	}
+
+	.scene-grid__container{
+		height: 100%;
+		width: 80%;
+	}
+
 	.color-list {
 		height: 100%;
 		flex-direction: column;
 		width: 10%;
+	}
+}
+
+
+//@media screen and (min-width: 768px) and (max-aspect-ratio: 4/3) {
+//	//.page-wrapper {
+//	//	flex-direction: row;
+//	//}
+//
+//	//.scene-grid__container{
+//	//	height: 100%;
+//	//	width: 80%;
+//	//}
+//
+//	.scene-grid__scene {
+//		height: 33.33333333%;
+//		width: 33.33333333%;
+//	}
+//
+//	.scene-grid__scene:nth-child(n+5) {
+//		display: block;
+//	}
+//
+//	.color-list {
+//		height: 100%;
+//		flex-direction: column;
+//		width: 10%;
+//	}
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//@media screen and (max-width: 767px) and (min-aspect-ratio: 4/3) {
+//	.color-list {
+//		border: 3px solid red !important;
+//	}
+//
+//	.scene-grid__container{
+//		width: 85%;
+//	}
+//}
+
+@media screen and (min-width: 1024px) and (min-aspect-ratio: 1/1) {
+	.color-list {
+		width: 7.5%;
+	}
+
+	.scene-grid__container{
+		width: 85%;
+	}
+}
+
+@media screen and (min-width: 1150px) and (min-aspect-ratio: 1/1) {
+	.color-list {
+		width: 5%;
+	}
+
+	.scene-grid__container{
+		width: 90%;
 	}
 }

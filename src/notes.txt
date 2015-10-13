@@ -55,3 +55,14 @@ angular.module('app')
         }
     }
 })
+
+
+<linearGradient id="linearGradient" x1="10%" y1="0" x2="0" y2="50%">
+                <stop class="stop1" offset="0%" stop-color="black" />
+                <stop class="stop2" offset="50%" stop-color="white" />
+                <stop class="stop3" offset="100%" stop-color="white" />
+            </linearGradient>
+
+
+<feComposite in="SourceGraphic" in2="BackgroundImage" operator="arithmetic" k1="0" k2="0.5" k3="0.5" k4="-0.25" />
+                <feColorMatrix type="hueRotate" values="{{$index * 20}}"/>

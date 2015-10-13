@@ -13,6 +13,12 @@
                     this.hideDetailView = function(newColor) {
                         thatAppState.isColorDetailDisplayed = false;
                     };
+
+                    this.addToFavorites = function(newColor) {
+                        thatAppState.favoriteColors.unshift(newColor);
+                        thatAppState.isColorDetailDisplayed = false;
+                    };
+
                 },
                 controllerAs: 'colorDetail'
             };

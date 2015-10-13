@@ -5,7 +5,7 @@
 .room-scene__wrapper {
 	bottom: -9999px;
 	flex: 1 1 auto;
-	height: 300%;
+	height: 400%;
 	left: -9999px;
 	margin: auto;
 	max-height: 150%;
@@ -13,79 +13,94 @@
 	position: absolute;
 	right: -9999px;
 	top: -9999px;
-	width: 300%;
+	width: 400%;
 
-	.room-scene {
+	.room-scene,
+	.room-scene__image {
 		height: 100%;
 		width: 100%;
 	}
 }
 
-@media screen and (min-aspect-ratio: 1/1) {
-	.room-scene__wrapper{
-		max-height: 125%;
-		max-width: 125%;
+.color-detail-cta {
+	background: #fff;
+	position: absolute;
+}
+
+
+@for $i from 1 through 40 {
+	$currentLargeSize: 20 + $i;
+	@media screen and (max-aspect-ratio: 20/ inspect($currentLargeSize)), (min-aspect-ratio: inspect($currentLargeSize) / 20 ) {
+		.room-scene__wrapper{
+			max-height: 105 + $i * 4%;
+			max-width: 105 + $i * 4%;
+		}
 	}
 }
 
-@media screen and (max-aspect-ratio: 4/5), (min-aspect-ratio: 5/4) {
-	.room-scene__wrapper{
-		max-height: 134%;
-		max-width: 134%;
-	}
-}
 
-@media screen and (max-aspect-ratio: 3/4), (min-aspect-ratio: 4/3) {
-	.room-scene__wrapper{
-		max-height: 157%;
-		max-width: 157%;
-	}
-}
+//@media screen and (min-width: 1024px) {
+//	@for $i from 1 through 40 {
+//		$currentLargeSize: 20 + $i;
+//		@media screen and (max-aspect-ratio: 20/ inspect($currentLargeSize)), (min-aspect-ratio: inspect($currentLargeSize) / 20 ) {
+//			.room-scene__wrapper{
+//				max-height: 100 + $i * 6%;
+//				max-width: 100 + $i * 6%;
+//			}
+//		}
+//	}
+//}
 
-@media screen and (max-aspect-ratio: 24/17), (min-aspect-ratio: 17/24) {
-	.room-scene__wrapper{
-		max-height: 186%;
-		max-width: 186%;
-	}
-}
 
-@media screen and (max-aspect-ratio: 2/3), (min-aspect-ratio: 3/2) {
-	.room-scene__wrapper{
-		max-height: 212%;
-		max-width: 212%;
-	}
-}
 
-@media screen and (max-aspect-ratio: 1/2), (min-aspect-ratio: 2/1) {
-	.room-scene__wrapper{
-		max-height: 250%;
-		max-width: 250%;
-	}
-}
 
-@media screen and (max-aspect-ratio: 2/5), (min-aspect-ratio: 5/2) {
-	.room-scene__wrapper{
-		max-height: 320%;
-		max-width: 320%;
-	}
-}
 
-@media screen and (min-width: 1024px) and (min-aspect-ratio: 1/1) {
-	.color-list {
-		width: 7.5%;
-	}
-
-	.scene-grid__container{
-		width: 85%;
-	}
-}
-
-@media screen and (min-width: 1150px) and (min-aspect-ratio: 1/1) {
-	.color-list {
-		width: 5%;
-	}
-
-	.scene-grid__container{
-		width: 90%;
-	}
-}
+//
+//@media screen and (min-aspect-ratio: 1/1) {
+//	.room-scene__wrapper{
+//		max-height: 125%;
+//		max-width: 125%;
+//	}
+//}
+//
+//@media screen and (max-aspect-ratio: 4/5), (min-aspect-ratio: 5/4) {
+//	.room-scene__wrapper{
+//		max-height: 134%;
+//		max-width: 134%;
+//	}
+//}
+//
+//@media screen and (max-aspect-ratio: 3/4), (min-aspect-ratio: 4/3) {
+//	.room-scene__wrapper{
+//		max-height: 157%;
+//		max-width: 157%;
+//	}
+//}
+//
+//@media screen and (max-aspect-ratio: 24/17), (min-aspect-ratio: 17/24) {
+//	.room-scene__wrapper{
+//		max-height: 186%;
+//		max-width: 186%;
+//	}
+//}
+//
+//@media screen and (max-aspect-ratio: 2/3), (min-aspect-ratio: 3/2) {
+//	.room-scene__wrapper{
+//		max-height: 212%;
+//		max-width: 212%;
+//	}
+//}
+//
+//@media screen and (max-aspect-ratio: 1/2), (min-aspect-ratio: 2/1) {
+//	.room-scene__wrapper{
+//		max-height: 250%;
+//		max-width: 250%;
+//	}
+//}
+//
+//@media screen and (max-aspect-ratio: 2/5), (min-aspect-ratio: 5/2) {
+//	.room-scene__wrapper{
+//		max-height: 320%;
+//		max-width: 320%;
+//	}
+//}

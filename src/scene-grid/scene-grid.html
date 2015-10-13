@@ -1,13 +1,16 @@
 <ul class="scene-grid__list">
-    <li ng-repeat="color in appState.historyColors" ng-click="sceneGridItems.displayColorDetail(color)" class="scene-grid__scene" style="background-color:#{{color}};">
+    <!--fix method-->
+    <li ng-repeat="color in appState.historyColors" ng-click="sceneGridItems.reloadSceneGrid()" class="scene-grid__scene" style="background-color:#{{color}};">
         <div class="room-scene__wrapper">
             <svg  class="room-scene" version="1.1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
-                <g class="room-scene">
                     <image  class="room-scene__image" xlink:href="./images/room-contrast.jpg" filter="url(#scene__filter--{{$index}})" x="0" y="0" height="100%" width="100%" />
                     <image class="room-scene__image" xlink:href="./images/room-foreground.png" x="0" y="0" height="100%" width="100%" />
-                </g>
             </svg>
         </div>
+
+        <div class="color-detail-cta" ng-click="sceneGridItems.displayColorDetail(color, $event)">See Detail</div>
     </li>
 </ul>
+
+

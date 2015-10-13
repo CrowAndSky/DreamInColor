@@ -6,7 +6,12 @@
 	top: 0;
 	width: 100vw;
 
-	&__close-button {
+	&__close-cta {
+		background: #fff;
+		padding: 1rem;
+	}
+
+	&__add-to-faves-cta {
 		background: #fff;
 		padding: 1rem;
 	}
