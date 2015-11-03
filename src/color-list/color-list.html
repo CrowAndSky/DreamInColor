@@ -1,1 +1,47 @@
-<div ng-repeat="color in appState.historyColors" ng-click="colorListItems.setCurrentColor(color)" class="color-list__item index-{{$index}}" style="background-color:#{{color}};"></div>
+<div ng-repeat="color in appState.historyColors | limitTo:8" ng-click="colorListItems.setCurrentColor(color)" style="color:#{{color}};" class="color-list__item index-{{$index}}">
+
+    <!--<div class="wrapper">-->
+
+    <!--<div class="svg-wrapper">-->
+        <svg fill='#{{color}}'
+             class="color-list__item-top"
+            xmlns='http://www.w3.org/2000/svg'
+            viewBox='0 0 64 64'
+
+            preserveAspectRatio="none">
+            <path d='M64 64 L64 16 C64 39 10 20 0 48 L0 64 Z' />
+        </svg>
+    <!--</div>-->
+
+    <div class="color-list__item--center" style="background-color:#{{color}};">
+
+    </div>
+
+    <!--<div class="svg-wrapper bottom">-->
+        <svg fill='#{{color}}'
+             class="color-list__item-bottom"
+             xmlns='http://www.w3.org/2000/svg'
+             viewBox='0 0 64 64'
+             preserveAspectRatio="none">
+            <path d='M64 0 L64 16 C64 39 10 20 0 48 L0 0 Z' />
+        </svg>
+    <!--</div>-->
+
+    <!--<div class="svg-wrapper">-->
+        <!--&lt;!&ndash;<svg&ndash;&gt;-->
+                <!--&lt;!&ndash;xmlns='http://www.w3.org/2000/svg'&ndash;&gt;-->
+                <!--&lt;!&ndash;viewBox='0 0 64 64'&ndash;&gt;-->
+                <!--&lt;!&ndash;height="50%"&ndash;&gt;-->
+                <!--&lt;!&ndash;width="100%"&ndash;&gt;-->
+
+                <!--&lt;!&ndash;fill='blue'>&ndash;&gt;-->
+            <!--&lt;!&ndash;<path d='M64 0 L64 16 C64 39 10 20 0 48 L0 0 Z' />&ndash;&gt;-->
+        <!--&lt;!&ndash;</svg>&ndash;&gt;-->
+
+    <!--</div>-->
+
+    <!--</div>-->
+
+
+</div>
+
