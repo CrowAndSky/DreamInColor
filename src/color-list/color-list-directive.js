@@ -17,16 +17,6 @@ angular.module('colorList')
                 };
                 //appState.isColorDetailDisplayed" style="background-color:#{{appState.currentDetailColor
 
-
-
-
-                //this.testCont = function() {
-                //    console.log("controller test");
-                //};
-                //
-                //$scope.testString = "string1";
-                //
-                //this.localBootStrapColors = ["90A6BE","2A426A","DB843C","BE4931","FBB07D","8CBF3E","65BAAD"];
             },
             controllerAs: 'colorListItems'
     };
