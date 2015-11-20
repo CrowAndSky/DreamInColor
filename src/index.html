@@ -24,7 +24,7 @@
         </defs>
     </svg>
 
-    <color-list-items class="color-list history-list list-length-{{appState.historyColors.length}}" ng-class="{'displaying-max-list' : appState.historyColors.length > appState.maxColorListLength}"></color-list-items>
+    <color-list-items class="color-list history-list" ng-class="{'list-length-{{appState.maxColorListLength}}' : appState.historyColors.length > appState.maxColorListLength, 'list-length-{{appState.historyColors.length}}' : appState.historyColors.length <= appState.maxColorListLength}"></color-list-items>
     <scene-grid-items class="scene-grid__container"></scene-grid-items>
     <favorite-list-items class="color-list favorites-list"></favorite-list-items>
     <color-detail></color-detail>

@@ -1,40 +1,4 @@
-<div ng-repeat="color in appState.historyColors | limitTo:appState.maxColorListLength" ng-click="colorListItems.setCurrentColor(color)" style="color:#{{color}};" class="color-list__item index-{{$index}}">
-    <svg    fill='#{{color}}'
-            class="color-list__item-path"
-            xmlns='http://www.w3.org/2000/svg'
-            preserveAspectRatio="none"
-            ng-if="$index === 0 || $index === 3 || $index === 7"
-            viewBox='0 0 158 163'>
-
-            <path fill="#{{color}}" d="M158,81c0,47-39,82-84,82c-46,0-74-41-74-79C0,41,38,0,81,0 C127,0,158,42,158,81z"></path>
-    </svg>
-
-    <svg    fill='#{{color}}'
-            class="color-list__item-path"
-            xmlns='http://www.w3.org/2000/svg'
-            preserveAspectRatio="none"
-            ng-if="$index === 1 || $index === 4 || $index === 6"
-            viewBox='0 0 305.011 269.374'>
-
-        <path fill="#{{color}}" d="M190,6.374c31.26,3.37,71.28,26.98,89,54c1.33,2.03,3.66,2.98,5,5
-            c13.71,20.73,21.34,44,21,69c-0.12,9.02-1.22,18.02-2,27c-0.49,5.7-1.77,10.69-4,16c-6.71,15.95-17.8,37.2-31,49
-            c-7.89,7.06-17.39,12.84-26,19c-22.96,16.45-49.87,24-78,24c-12.01,0-24.26-0.29-36-3c-10.26-2.37-19.31-5.95-29-10
-            c-19.11-8-36.07-18.72-52-32c-21.24-17.71-47-59.77-47-88v-26c0-25.47,16.2-50.41,33-68c2.22-2.33,3.17-1.66,6-3
-            c1.75-0.83,3.02-4.39,4-6c0.65-1.08,3.61-1.95,5-3c9.65-7.32,19.6-12.04,31-16c4.56-1.58,8.26-4.86,13-6
-            c5.38-1.3,10.53-0.73,15.76-2.76C137.32-5.896,162.18,3.374,190,6.374z"></path>
-    </svg>
-
-    <svg    fill='#{{color}}'
-            class="color-list__item-path"
-            xmlns='http://www.w3.org/2000/svg'
-            preserveAspectRatio="none"
-            viewBox='0 0 304.254 254'
-            ng-if="$index === 2 || $index === 5 || $index === 8">
-
-        <path fill="#{{color}}" d="M196.254,14c14.24,2.88,28.78,3.95,43,7c8.33,1.79,16.7,4.52,24,9
-        c26.78,16.42,41,37.39,41,69c0,58.55-52.56,120.68-104,144c-19.31,8.75-30.03,11-51,11c-12.41,0-24.92-1.07-37-4
-        c-40.67-9.86-82.31-48.05-97-87c-5.32-14.11-12.71-28.31-14.42-43.49c-1.24-11-1.32-22.39,1.31-33.21
-        c3.09-12.7,9.54-22.92,16.32-33.85C39.774,18.14,72.804,0,113.254,0C141.504,0,168.804,8.44,196.254,14z"></path>
-    </svg>
+<div ng-repeat="color in appState.historyColors | limitTo:appState.maxColorListLength" ng-click="colorListItems.setCurrentColor(color)" class="color-list__item index-{{$index}}">
+    <div class="color-list__blob" style="background-color:#{{color}};"></div>
 </div>
 

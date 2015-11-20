@@ -7,8 +7,8 @@
         .controller('DreamInColorApp', function($scope) {
             $scope.appState =
             {
-                isColorDetailDisplayed      : false,
-                currentDetailColor          : 'cdf',
+                isColorDetailDisplayed      : true,
+                currentDetailColor          : '65BAAD',
                 maxColorListLength          : 9,
                 isFavoritesViewerDisplayed  : false,
                 historyColors               : ["c8e1e6","b9af5b","A9593A","9C8F76","555c64","8CBF3E","3b363e","65BAAD","aa8f52"],
