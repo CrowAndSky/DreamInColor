@@ -1,5 +1,13 @@
+$color-gray: #999;
+$color-dark-gray: #222;
+
 html, body, div, span, section, ul, li {
 	box-sizing: border-box;
+	color: $color-dark-gray;
+	font-family: "Kozuka Gothic Pro";
+	font-weight: lighter;
+	//letter-spacing: -1px;
+	//font-family: "Gill Sans";
 	margin: 0;
 	padding: 0;
 }
@@ -14,6 +22,13 @@ ul, li {
 	visibility: hidden;
 	width: 0;
 }
+
+.button {
+	background: #fff;
+	display: inline-block;
+	padding: 0.5rem;
+}
+
 
 @import "_color-list";
 @import "_color-detail";

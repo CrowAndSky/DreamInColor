@@ -1,103 +1,78 @@
-<div class="color-detail" ng-show="appState.isColorDetailDisplayed" style="background-color:#{{appState.currentDetailColor}};">
-    color-detail!
-
-    <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460 220" preserveAspectRatio="xMidYMid keep">
-
+<div class="color-detail" ng-show="appState.isColorDetailDisplayed" style="background-color:#fff;">
+    <svg class="svg-defs" version="1.1" xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000" preserveAspectRatio="xMinYMin meet" xmlns="">
         <defs>
-            <filter id="extrudeFilter">
-                <!-- COLORS -->
-                <feFlood flood-color="#{{appState.currentDetailColor}}" result="COLOR-red"></feFlood>
-                <!-- COLORS END -->
+            <mask id="wallMask" preserveAspectRatio="xMinYMin meet">
+                <g class="group">
+                </g>
+            </mask>
 
-                <!-- STROKE -->
-                <feMorphology operator="dilate" radius="4" in="SourceAlpha" result="STROKE_10"></feMorphology>
-                <!-- STROKE END -->
-
-                <!-- EXTRUDED BEVEL -->
-                <feConvolveMatrix in="STROKE_10" result="BEVEL_20" order="8,8" divisor="1" kernelMatrix="1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1"></feConvolveMatrix>
-
-                <feOffset dx="4" dy="4" in="BEVEL_20" result="BEVEL_25"></feOffset>
-                <feComposite operator="out" in="BEVEL_25" in2="STROKE_10" result="BEVEL_30"></feComposite>
-                <feComposite in="COLOR-red" in2="BEVEL_30" operator="in" result="BEVEL_40"></feComposite>
-                <feMerge result="BEVEL_50">
-                    <feMergeNode in="BEVEL_40"></feMergeNode>
-                    <feMergeNode in="SourceGraphic"></feMergeNode>
-                </feMerge>
-                <!-- EXTRUDED BEVEL END -->
-
-                <feComposite in2="COLOR-red" in="BEVEL_50" operator="in"></feComposite>
+            <filter ng-repeat="color in appState.historyColors" id="scene__filter">
+                <feFlood id="stain-sample__filter--tint" flood-color="#{{appState.currentDetailColor}}" result="tintHue" />
+                <feBlend mode="multiply" in="tintHue" in2="SourceGraphic" result="darkenedSample" />
             </filter>
 
-            <filter id="extrudeFilter2">
-                <!-- COLORS This will be the extruded color -->
-                <!--<feFlood flood-color="#{{appState.currentDetailColor}}" result="COLOR-red"></feFlood>-->
-                <feFlood flood-color="#0000ff" result="COLOR-red"></feFlood>
-                <!-- COLORS END -->
+        </defs>
+    </svg>
 
-                <!-- STROKE -->
-                <feMorphology operator="dilate" radius="4" in="SourceAlpha" result="STROKE_10"></feMorphology>
-                <!-- STROKE END -->
+    <!--{{appState.currentDetailColor}}-->
+    color-detail!
+
+    <!--<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460 220" preserveAspectRatio="xMidYMid keep">-->
+
+        <!--<defs>-->
+            <!--<filter id="extrudeFilter">-->
+                <!--&lt;!&ndash; COLORS &ndash;&gt;-->
+                <!--<feFlood flood-color="#{{appState.currentDetailColor}}" result="COLOR-red"></feFlood>-->
+                <!--&lt;!&ndash; COLORS END &ndash;&gt;-->
+
+                <!--&lt;!&ndash; STROKE &ndash;&gt;-->
+                <!--<feMorphology operator="dilate" radius="4" in="SourceAlpha" result="STROKE_10"></feMorphology>-->
+                <!--&lt;!&ndash; STROKE END &ndash;&gt;-->
 
                 <!--&lt;!&ndash; EXTRUDED BEVEL &ndash;&gt;-->
-                <feConvolveMatrix in="STROKE_10" result="BEVEL_20" order="8,8" divisor="1" kernelMatrix="1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1"></feConvolveMatrix>
+                <!--<feConvolveMatrix in="STROKE_10" result="BEVEL_20" order="8,8" divisor="1" kernelMatrix="1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1"></feConvolveMatrix>-->
 
-                <feOffset dx="4" dy="4" in="BEVEL_20" result="BEVEL_25"></feOffset>
-                <!--<feMorphology operator="ERODE" radius="4" in="BEVEL_25" result="THINNER"></feMorphology>-->
-                
-                <feComposite in="COLOR-red" in2="BEVEL_30" operator="in" result="BEVEL_40"></feComposite>
-                <feMerge result="BEVEL_50">
-                    <feMergeNode in="BEVEL_40"></feMergeNode>
-                    <feMergeNode in="SourceGraphic"></feMergeNode>
-                </feMerge>
+                <!--<feOffset dx="4" dy="4" in="BEVEL_20" result="BEVEL_25"></feOffset>-->
+                <!--<feComposite operator="out" in="BEVEL_25" in2="STROKE_10" result="BEVEL_30"></feComposite>-->
+                <!--<feComposite in="COLOR-red" in2="BEVEL_30" operator="in" result="BEVEL_40"></feComposite>-->
+                <!--<feMerge result="BEVEL_50">-->
+                    <!--<feMergeNode in="BEVEL_40"></feMergeNode>-->
+                    <!--<feMergeNode in="SourceGraphic"></feMergeNode>-->
+                <!--</feMerge>-->
                 <!--&lt;!&ndash; EXTRUDED BEVEL END &ndash;&gt;-->
 
                 <!--<feComposite in2="COLOR-red" in="BEVEL_50" operator="in"></feComposite>-->
+            <!--</filter>-->
 
-            </filter>
+            <!--<filter id="extrudeFilter2">-->
 
+                <!--<feMorphology operator="dilate" radius="40" in="SourceAlpha" result="STROKE_10"></feMorphology>-->
 
-
-            <filter id="shadowFilter">
-                <feGaussianBlur stdDeviation="5" in="SourceAlpha" result="BLUR"/>
-
-                <!-- We then define a lighting effect with a point light that is positioned at virtual 3D coordinates x: 40px, y: -30px, z: 200px: -->
-
-                <feSpecularLighting surfaceScale="6" specularConstant="1" specularExponent="30" lighting-color="#white" in="BLUR" result="SPECULAR">
-                    <fePointLight x="40" y="-30" z="200" />
-                </feSpecularLighting>
-
-                <!-- We cut off the parts that overlap the source graphic… -->
-
-                <feComposite operator="in" in="SPECULAR" in2="SourceAlpha" result="COMPOSITE"/>
-
-                <!-- … and then merge source graphic and lighting effect: -->
-
-                <feMerge>
-                    <feMergeNode in="SourceGraphic" />
-                    <feMergeNode in="COMPOSITE"/>
-                </feMerge>
-            </filter>
+                <!--&lt;!&ndash;<feComposite in="SourceGraphic" in2="STROKE_10" operator="in"></feComposite>&ndash;&gt;-->
 
 
-        </defs>
 
-        <g>
-            <text class="name stroke-source" font-size="20px" filter="url(#extrudeFilter2)" x="40" y="40">Ocean Spray</text>
-            <text class="name" fill="white" font-size="45px" x="0" y="0">Ocean Spray</text>
-        </g>
-    </svg>
+            <!--</filter>-->
+        <!--</defs>-->
 
-    <style>
-        .name {
-        font-size: 4rem;
-        font-family: Century Gothic;
+        <!--<g>-->
+            <!--<text class="color-name stroke-source" fill="#{{appState.currentDetailColor}}" x="40" y="40">Ocean Spray</text>-->
+        <!--</g>-->
+    <!--</svg>-->
 
-            /*font-family: "Kozuka Gothic Pro EL";*/
-            /*font-family: "Gill Sans Light";*/
+    <div class="room-scene__wrapper">
+        <svg  class="room-scene" version="1.1" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
+            <image  class="room-scene__image" xlink:href="./images/room-contrast.jpg" filter="url(#scene__filter)" x="0" y="0" height="100%" width="100%" />
+            <image class="room-scene__image" xlink:href="./images/room-foreground.png" x="0" y="0" height="100%" width="100%" />
+        </svg>
+    </div>
 
-        }
-    </style>
+    <div class="detail-copy">
+        <div class="detail-copy__close-cta" ng-click="colorDetail.hideDetailView()">Close</div>
+        <div class="detail-copy__add-to-faves-cta" ng-click="colorDetail.addToFavorites(appState.currentDetailColor)">Add to Favorites</div>
+        <h1 class="detail-copy__color-name">Ocean Spray</h1>
+    </div>
 
-    <div class="color-detail__close-cta" ng-click="colorDetail.hideDetailView()">Close</div>
-    <div class="color-detail__add-to-faves-cta" ng-click="colorDetail.addToFavorites(appState.currentDetailColor)">Add to Favorites</div>
 </div>
