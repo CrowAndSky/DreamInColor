@@ -1,7 +1,8 @@
 $color-gray: #999;
 $color-dark-gray: #222;
+$color-white: #fffefd;
 
-html, body, div, span, section, ul, li {
+html, body, div, span, section, ul, li, h1, h2, h3, h4, h5 {
 	box-sizing: border-box;
 	color: $color-dark-gray;
 	font-family: "Kozuka Gothic Pro";
@@ -24,7 +25,7 @@ ul, li {
 }
 
 .button {
-	background: #fff;
+	background: $color-white;
 	display: inline-block;
 	padding: 0.5rem;
 }

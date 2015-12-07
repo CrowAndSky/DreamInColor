@@ -1,78 +1,21 @@
-<div class="color-detail" ng-show="appState.isColorDetailDisplayed" style="background-color:#fff;">
-    <svg class="svg-defs" version="1.1" xmlns="http://www.w3.org/2000/svg"
-         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000" preserveAspectRatio="xMinYMin meet" xmlns="">
-        <defs>
-            <mask id="wallMask" preserveAspectRatio="xMinYMin meet">
-                <g class="group">
-                </g>
-            </mask>
-
-            <filter ng-repeat="color in appState.historyColors" id="scene__filter">
-                <feFlood id="stain-sample__filter--tint" flood-color="#{{appState.currentDetailColor}}" result="tintHue" />
-                <feBlend mode="multiply" in="tintHue" in2="SourceGraphic" result="darkenedSample" />
-            </filter>
-
-        </defs>
-    </svg>
-
-    <!--{{appState.currentDetailColor}}-->
-    color-detail!
-
-    <!--<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460 220" preserveAspectRatio="xMidYMid keep">-->
-
-        <!--<defs>-->
-            <!--<filter id="extrudeFilter">-->
-                <!--&lt;!&ndash; COLORS &ndash;&gt;-->
-                <!--<feFlood flood-color="#{{appState.currentDetailColor}}" result="COLOR-red"></feFlood>-->
-                <!--&lt;!&ndash; COLORS END &ndash;&gt;-->
-
-                <!--&lt;!&ndash; STROKE &ndash;&gt;-->
-                <!--<feMorphology operator="dilate" radius="4" in="SourceAlpha" result="STROKE_10"></feMorphology>-->
-                <!--&lt;!&ndash; STROKE END &ndash;&gt;-->
-
-                <!--&lt;!&ndash; EXTRUDED BEVEL &ndash;&gt;-->
-                <!--<feConvolveMatrix in="STROKE_10" result="BEVEL_20" order="8,8" divisor="1" kernelMatrix="1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1"></feConvolveMatrix>-->
-
-                <!--<feOffset dx="4" dy="4" in="BEVEL_20" result="BEVEL_25"></feOffset>-->
-                <!--<feComposite operator="out" in="BEVEL_25" in2="STROKE_10" result="BEVEL_30"></feComposite>-->
-                <!--<feComposite in="COLOR-red" in2="BEVEL_30" operator="in" result="BEVEL_40"></feComposite>-->
-                <!--<feMerge result="BEVEL_50">-->
-                    <!--<feMergeNode in="BEVEL_40"></feMergeNode>-->
-                    <!--<feMergeNode in="SourceGraphic"></feMergeNode>-->
-                <!--</feMerge>-->
-                <!--&lt;!&ndash; EXTRUDED BEVEL END &ndash;&gt;-->
-
-                <!--<feComposite in2="COLOR-red" in="BEVEL_50" operator="in"></feComposite>-->
-            <!--</filter>-->
-
-            <!--<filter id="extrudeFilter2">-->
-
-                <!--<feMorphology operator="dilate" radius="40" in="SourceAlpha" result="STROKE_10"></feMorphology>-->
-
-                <!--&lt;!&ndash;<feComposite in="SourceGraphic" in2="STROKE_10" operator="in"></feComposite>&ndash;&gt;-->
-
-
-
-            <!--</filter>-->
-        <!--</defs>-->
-
-        <!--<g>-->
-            <!--<text class="color-name stroke-source" fill="#{{appState.currentDetailColor}}" x="40" y="40">Ocean Spray</text>-->
-        <!--</g>-->
-    <!--</svg>-->
+<div class="color-detail" ng-show="appState.isColorDetailDisplayed" style="background-color:#fff;" ng-class="{'color-detail__color-only-displayed': colorDetail.isColorOnlyDisplayed}">
 
     <div class="room-scene__wrapper">
         <svg  class="room-scene" version="1.1" xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
             <image  class="room-scene__image" xlink:href="./images/room-contrast.jpg" filter="url(#scene__filter)" x="0" y="0" height="100%" width="100%" />
-            <image class="room-scene__image" xlink:href="./images/room-foreground.png" x="0" y="0" height="100%" width="100%" />
+            <image class="room-scene__image room-scene__image--foreground" xlink:href="./images/room-foreground.png" x="0" y="0" height="100%" width="100%" />
         </svg>
     </div>
 
+    <div class="transition-overlay" style="background: radial-gradient(ellipse at center, {{appState.currentDetailColorRGBA}} 0%, {{appState.currentDetailColorRGBA}} 50%, {{appState.currentDetailColorRGBzeroA}} 100%);"></div>
+    <!--#{{appState.currentDetailColor}}-->
+
     <div class="detail-copy">
-        <div class="detail-copy__close-cta" ng-click="colorDetail.hideDetailView()">Close</div>
-        <div class="detail-copy__add-to-faves-cta" ng-click="colorDetail.addToFavorites(appState.currentDetailColor)">Add to Favorites</div>
         <h1 class="detail-copy__color-name">Ocean Spray</h1>
+        <div class="detail-copy__close-cta" ng-click="colorDetail.hideDetailView()">Close</div>
+        <div class="detail-copy__close-cta" ng-click="colorDetail.isColorOnlyDisplayed = true">Color Only</div>
+        <div class="detail-copy__add-to-faves-cta" ng-click="colorDetail.addToFavorites(appState.currentDetailColor)">Add to Favorites</div>
     </div>
 
 </div>

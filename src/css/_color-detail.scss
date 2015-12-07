@@ -1,25 +1,81 @@
-.detail-copy {
-	left: 0;
-	height: 100vh;
-	position: absolute;
-	top: 0;
-	width: 100vw;
+.color-detail {
+	.room-scene__image {
+		&--foreground {
+			transition: opacity 0.5s;
+		}
 
-	&__close-cta {
-		@extend .button;
-		//background: #fff;
-		//display: inline-block;
-		//padding: 0.5rem;
 	}
 
-	&__add-to-faves-cta {
-		@extend .button;
-		background: #fff;
-		//display: inline-block;
-		//padding: 1rem;
+	.detail-copy {
+		background: $color-white;
+		bottom: 0;
+		left: 0;
+		position: absolute;
+		//z-index: 2;
+
+		&__close-cta {
+			@extend .button;
+			//background: #fff;
+			//display: inline-block;
+			//padding: 0.5rem;
+		}
+
+		&__add-to-faves-cta {
+			@extend .button;
+			background: #fff;
+			//display: inline-block;
+			//padding: 1rem;
+		}
+
+		&__color-name {
+			font-size: 4rem;
+		}
 	}
 
-	&__color-name {
-		font-size: 4rem;
+	.transition-overlay {
+		//border: 2px solid red;
+		border-radius: 50%;
+		//display: none;
+		left: calc(50% - 5vh);
+		height: 10vh;
+		opacity: 0;
+		position: absolute;
+		top: calc(50% - 5vh);
+		transition: all 0.5s;  // height 1s, left 1s, top 1s, width 1s;
+		width: 10vh;
+		//z-index: 3;
+	}
+
+	&__color-only-displayed {
+		.room-scene__image--foreground {
+			opacity: 0;
+		}
+
+		.transition-overlay {
+			display: block;
+			opacity: 1;
+			left: calc(50% - 100vh);
+			height: 200vh;
+			position: absolute;
+			top: calc(50% - 100vh);
+			width: 200vh;
+		}
 	}
 }
+
+@media screen and (min-aspect-ratio: 20/19) {
+	.color-detail .transition-overlay {
+		height: 10vw;
+		left: calc(50% - 100vw);
+		top: calc(50% - 100vw);
+		width: 10vw;
+	}
+
+	.color-detail__color-only-displayed .transition-overlay {
+		height: 200vw;
+		left: calc(50% - 100vw);
+		top: calc(50% - 100vw);
+		width: 200vw;
+	}
+}
+

@@ -13,7 +13,7 @@
                     this.displayColorDetail = function(currentColor, $event) {
                         $event.stopPropagation();
                         thatAppState.currentDetailColor = currentColor;
-                        console.log(thatAppState.currentDetailColor);
+                        thatAppState.updateDetailColor();
                         thatAppState.isColorDetailDisplayed = true;
                     };
 

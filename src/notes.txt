@@ -117,6 +117,57 @@ angular.module('app')
 
 
 
+
+
+
+
+
+
+	//&__item-path {
+	//	display: inline-block;
+	//	max-width: 75%;
+	//
+	//	transition: transform 0.3s, opacity 0.3s;
+	//}
+	//
+	//
+	//
+	//@for $i from 0 through 7 {
+	//	.color-list__item.index-#{$i} {
+	//		$startRotation: ($i * 25) - 90;
+	//		$endRotation: $i * 25;
+	//
+	//		.color-list__item-path {
+	//			transform: rotate(#{$endRotation}deg) scale(1);
+	//
+	//			&.ng-enter,
+	//			&.ng-leave {
+	//				opacity: 0;
+	//				transform: rotate(-#{$startRotation}deg) scale(0.1);
+	//
+	//			}
+	//
+	//			&.ng-enter.ng-enter-active,
+	//			&.ng-leave.ng-leave-active {
+	//				opacity: 1;
+	//				transform: rotate(#{$endRotation}deg) scale(1);
+	//			}
+	//		}
+	//	}
+	//}
+
+
+
+
+	//@for $i from 1 through 9 {
+    //	$currentHeight: 100 / $i;
+    //	.list-length-#{$i} .color-list__item {
+    //		border-radius: 50%;
+    //		height: #{$currentHeight}vh;
+    //		width: 100%;
+    //	}
+    //}
+
 ############################################################################################
 ########################   SVG   ########################
 ############################################################################################
