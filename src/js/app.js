@@ -9,10 +9,8 @@
             {
                 isColorDetailDisplayed      : true,
                 currentDetailColor          : '65BAAD',
-                //currentDetailColorRGBA      : this.currentDetailColor.toRgbString(),
-                //currentDetailColorRGBzeroA  : this.currentDetailColorRGBA.setAlpha(0),
-                currentDetailColorRGBA : tinycolor(this.currentDetailColor).setAlpha(0.999999).toRgbString(),
-                currentDetailColorRGBzeroA : tinycolor(this.currentDetailColor).setAlpha(0).toRgbString(),
+                currentDetailColorRGBA      : tinycolor(this.currentDetailColor).setAlpha(0.999999).toRgbString(),
+                currentDetailColorRGBzeroA  : tinycolor(this.currentDetailColor).setAlpha(0).toRgbString(),
                 maxColorListLength          : 9,
                 isFavoritesViewerDisplayed  : false,
                 historyColors               : ["c8e1e6","b9af5b","A9593A","9C8F76","555c64","8CBF3E","3b363e","65BAAD","aa8f52"],

@@ -27,16 +27,9 @@
                         console.log(thatAppState.currentDetailColorRGBzeroA);
                     };
 
-
-
                 },
                 controllerAs: 'colorDetail'
-
-
-
-
             };
 
         });
-
 }());

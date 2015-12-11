@@ -32,8 +32,8 @@
 	$currentLargeSize: 20 + $i;
 	@media screen and (max-aspect-ratio: 20/ inspect($currentLargeSize)), (min-aspect-ratio: inspect($currentLargeSize) / 20 ) {
 		.room-scene__wrapper{
-			max-height: 115 + $i * 4%;
-			max-width: 115 + $i * 4%;
+			max-height: 110 + $i * 5%;
+			max-width: 110 + $i * 5%;
 		}
 	}
 }

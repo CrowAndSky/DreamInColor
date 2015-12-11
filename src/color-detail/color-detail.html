@@ -1,6 +1,5 @@
-<div class="color-detail" ng-show="appState.isColorDetailDisplayed" style="background-color:#fff;" ng-class="{'color-detail__color-only-displayed': colorDetail.isColorOnlyDisplayed}">
-
-    <div class="room-scene__wrapper">
+<div class="color-detail" ng-show="appState.isColorDetailDisplayed" ng-class="{'color-detail__color-only-displayed': colorDetail.isColorOnlyDisplayed}">
+    <div class="room-scene__wrapper" style="background-color:#{{appState.currentDetailColor}};">
         <svg  class="room-scene" version="1.1" xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
             <image  class="room-scene__image" xlink:href="./images/room-contrast.jpg" filter="url(#scene__filter)" x="0" y="0" height="100%" width="100%" />
@@ -8,13 +7,19 @@
         </svg>
     </div>
 
-    <div class="transition-overlay" style="background: radial-gradient(ellipse at center, {{appState.currentDetailColorRGBA}} 0%, {{appState.currentDetailColorRGBA}} 50%, {{appState.currentDetailColorRGBzeroA}} 100%);"></div>
-    <!--#{{appState.currentDetailColor}}-->
+    <div class="transition-overlay" style="background: radial-gradient({{appState.currentDetailColorRGBzeroA}} 0%, {{appState.currentDetailColorRGBA}} 50%, {{appState.currentDetailColorRGBA}} 100%);"></div>
+    <!--<div class="transition-overlay" style="background: radial-gradient(#000 0%, #000 50%, {{appState.currentDetailColorRGBA}} 100%);"></div>-->
 
     <div class="detail-copy">
         <h1 class="detail-copy__color-name">Ocean Spray</h1>
+
         <div class="detail-copy__close-cta" ng-click="colorDetail.hideDetailView()">Close</div>
-        <div class="detail-copy__close-cta" ng-click="colorDetail.isColorOnlyDisplayed = true">Color Only</div>
+
+        <div class="detail-copy__color-toggle">
+            <span class="detail-copy__color-toggle-cta detail-copy__color-only-cta--scene-displayed" ng-click="colorDetail.isColorOnlyDisplayed = true">Show Only Color</span>
+            <span class="detail-copy__color-toggle-cta detail-copy__color-only-cta--color-displayed" ng-click="colorDetail.isColorOnlyDisplayed = false">Show Full Scene</span>
+        </div>
+
         <div class="detail-copy__add-to-faves-cta" ng-click="colorDetail.addToFavorites(appState.currentDetailColor)">Add to Favorites</div>
     </div>
 

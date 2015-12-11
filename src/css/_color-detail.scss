@@ -1,7 +1,65 @@
+@mixin expanding-overflow (percent-expanded, anim-duration){
+	//@mixin sexy-border($color, $width: 1in) {
+	
+	$gradient-radius-default: 400;
+	$color-toggle-duration: 1s;
+	//$color-toggle-duration-short: $color-toggle-duration * 0.66;
+	$color-toggle-duration-short: $color-toggle-duration * 0.66;
+	//$color-toggle-duration-long: $color-toggle-duration * 2;
+	$color-toggle-duration-long: $color-toggle-duration * 2;
+	$gradient-radius-h-orientation: 400vw;
+	$gradient-radius-v-orientation: 400vh;
+
+	left: calc(50% - (#{$gradient-radius-h-orientation} / 2));
+	height: 600vh;
+	opacity: 0;
+	position: absolute;
+	top: calc(50% - (#{$gradient-radius-h-orientation} / 2)); //calc(50% - 300vh);
+	transition-property: opacity, height, width, top, left;
+	//transition-duration: $color-toggle-durations-short, $color-toggle-duration, $color-toggle-duration, $color-toggle-duration, $color-toggle-duration;
+	transition-duration: $color-toggle-duration-short, $color-toggle-duration-long, $color-toggle-duration-long, $color-toggle-duration-long, $color-toggle-duration-long; // height 1s, left 1s, top 1s, width 1s;
+	width: 600vh;
+
+}
+
+color-detail,
 .color-detail {
+	//$color-toggle-duration: 1s;
+	//$color-toggle-duration-short: $color-toggle-duration * 0.66;
+	//$color-toggle-duration-long: $color-toggle-duration * 2;
+	//$gradient-radius-h-orientation: 400vw;
+	//$gradient-radius-v-orientation: 400vh;
+
+	//display: block;
+	//height: 100vh;
+	//max-height: 100vh;
+	//max-width: 100vw;
+	//overflow: hidden;
+	//width: 100vw;
+
+	display: block;
+	height: 100%;
+	left: 0;
+	max-height: 100%;
+	max-width: 100%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 9;
+	
+	.room-scene__wrapper {
+		//left: 0;
+		//position: absolute;
+		//top: 0;
+	}
+
 	.room-scene__image {
+		transition: opacity $color-toggle-duration;
+		transition-delay: calc($color-toggle-duration / 2);
 		&--foreground {
-			transition: opacity 0.5s;
+			transition: opacity $color-toggle-duration;
+			transition-delay: 0;
 		}
 
 	}
@@ -11,20 +69,14 @@
 		bottom: 0;
 		left: 0;
 		position: absolute;
-		//z-index: 2;
 
 		&__close-cta {
 			@extend .button;
-			//background: #fff;
-			//display: inline-block;
-			//padding: 0.5rem;
 		}
 
 		&__add-to-faves-cta {
 			@extend .button;
 			background: #fff;
-			//display: inline-block;
-			//padding: 1rem;
 		}
 
 		&__color-name {
@@ -32,50 +84,85 @@
 		}
 	}
 
+	.detail-copy__color-toggle {
+		position: relative;
+	}
+
+	.detail-copy__color-toggle-cta {
+		@extend .button;
+		position: relative;
+		transition: opacity $color-toggle-duration, z-index $color-toggle-duration;
+		transition-delay: 0s, $color-toggle-duration;
+		z-index: 1;
+	}
+
+	.detail-copy__color-only-cta--color-displayed {
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		z-index: -1;
+	}
+
 	.transition-overlay {
 		//border: 2px solid red;
 		border-radius: 50%;
-		//display: none;
-		left: calc(50% - 5vh);
-		height: 10vh;
+		left: calc(50% - (#{$gradient-radius-h-orientation} / 2));
+		height: 600vh;
 		opacity: 0;
 		position: absolute;
-		top: calc(50% - 5vh);
-		transition: all 0.5s;  // height 1s, left 1s, top 1s, width 1s;
-		width: 10vh;
-		//z-index: 3;
+		top: calc(50% - (#{$gradient-radius-h-orientation} / 2)); //calc(50% - 300vh);
+		transition-property: opacity, height, width, top, left;
+		//transition-duration: $color-toggle-durations-short, $color-toggle-duration, $color-toggle-duration, $color-toggle-duration, $color-toggle-duration;
+		transition-duration: $color-toggle-duration-short, $color-toggle-duration-long, $color-toggle-duration-long, $color-toggle-duration-long, $color-toggle-duration-long; // height 1s, left 1s, top 1s, width 1s;
+		width: 600vh;
 	}
 
 	&__color-only-displayed {
-		.room-scene__image--foreground {
+		.room-scene__image {
 			opacity: 0;
+		}
+
+		.detail-copy__color-only-cta--scene-displayed {
+			opacity: 0;
+			z-index: -1;
+		}
+
+		.detail-copy__color-only-cta--color-displayed {
+			opacity: 1;
+			z-index: 1;
+		}
+
+		&.remove {
+
 		}
 
 		.transition-overlay {
 			display: block;
 			opacity: 1;
-			left: calc(50% - 100vh);
-			height: 200vh;
+			left: 50%;
+			height: 1px;
 			position: absolute;
-			top: calc(50% - 100vh);
-			width: 200vh;
+			top: 50%;
+			width: 1px;
 		}
 	}
-}
 
-@media screen and (min-aspect-ratio: 20/19) {
-	.color-detail .transition-overlay {
-		height: 10vw;
-		left: calc(50% - 100vw);
-		top: calc(50% - 100vw);
-		width: 10vw;
+	@media screen and (min-aspect-ratio: 20/19) {
+		.color-detail .transition-overlay {
+			height: 600vw;
+			left: calc(50% - (#{$gradient-radius-v-orientation} / 2)); //calc(50% - 300vw);
+			top: calc(50% - (#{$gradient-radius-v-orientation} / 2)); //calc(50% - 300vw);
+			width: 600vw;
+
+		}
+		//
+		//.color-detail__color-only-displayed .transition-overlay {
+		//	height: 1px;
+		//	left: 50%;
+		//	top: 50%;
+		//	width: 1px;
+		//}
 	}
 
-	.color-detail__color-only-displayed .transition-overlay {
-		height: 200vw;
-		left: calc(50% - 100vw);
-		top: calc(50% - 100vw);
-		width: 200vw;
-	}
-}
-
+} //end .color-detail
