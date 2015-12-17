@@ -1,25 +1,36 @@
-@mixin expanding-overflow (percent-expanded, anim-duration){
-	//@mixin sexy-border($color, $width: 1in) {
-	
-	$gradient-radius-default: 400;
-	$color-toggle-duration: 1s;
-	//$color-toggle-duration-short: $color-toggle-duration * 0.66;
-	$color-toggle-duration-short: $color-toggle-duration * 0.66;
-	//$color-toggle-duration-long: $color-toggle-duration * 2;
-	$color-toggle-duration-long: $color-toggle-duration * 2;
-	$gradient-radius-h-orientation: 400vw;
-	$gradient-radius-v-orientation: 400vh;
+$anim-duration: 1s;
 
-	left: calc(50% - (#{$gradient-radius-h-orientation} / 2));
-	height: 600vh;
+
+@mixin gradient-overlay ($percent-expanded: 100%, $overlay-anim-duration: $anim-duration, $longer-side: horizontal, $gradient-radius-no-units: 400) {
+	//@mixin sexy-border($color, $width: 1in) {
+
+	//$gradient-radius-default: 400;
+	//$overlay-anim-duration: 1s;
+	//$overlay-anim-duration-short: $overlay-anim-duration * 0.66;
+	$overlay-anim-duration-short: $overlay-anim-duration $overlay-anim-duration * 0.66;
+	$overlay-anim-duration-long: $overlay-anim-duration * 2;
+	//$overlay-anim-duration-long: $overlay-anim-duration * 2;
+	//$gradient-radius-h-orientation: 400vw;
+	//$gradient-radius-v-orientation: 400vh;
+
+	$gradient-radius: #{$gradient-radius-no-units}vw;
+
+	@if $longer-side == vertical {
+		$gradient-radius: #{$gradient-radius-no-units}vh;
+	}
+	//@else {
+	//	$gradient-radius: ${$gradient-radius-no-units}vw;
+	//}
+
+	left: calc(50% - (#{$gradient-radius} * #{$percent-expanded} / 2));
+	height: $gradient-radius;
 	opacity: 0;
 	position: absolute;
-	top: calc(50% - (#{$gradient-radius-h-orientation} / 2)); //calc(50% - 300vh);
+	top: calc(50% - (#{$gradient-radius} * #{$percent-expanded} / 2)); //calc(50% - 300vh);
 	transition-property: opacity, height, width, top, left;
-	//transition-duration: $color-toggle-durations-short, $color-toggle-duration, $color-toggle-duration, $color-toggle-duration, $color-toggle-duration;
-	transition-duration: $color-toggle-duration-short, $color-toggle-duration-long, $color-toggle-duration-long, $color-toggle-duration-long, $color-toggle-duration-long; // height 1s, left 1s, top 1s, width 1s;
-	width: 600vh;
-
+	//transition-duration: $overlay-anim-durations-short, $overlay-anim-duration, $overlay-anim-duration, $overlay-anim-duration, $overlay-anim-duration;
+	transition-duration: $overlay-anim-duration-short, $overlay-anim-duration-long, $overlay-anim-duration-long, $overlay-anim-duration-long, $overlay-anim-duration-long; // height 1s, left 1s, top 1s, width 1s;
+	width: $gradient-radius;
 }
 
 color-detail,
@@ -55,10 +66,10 @@ color-detail,
 	}
 
 	.room-scene__image {
-		transition: opacity $color-toggle-duration;
-		transition-delay: calc($color-toggle-duration / 2);
+		transition: opacity $anim-duration;
+		transition-delay: calc(#{$anim-duration} / 2);
 		&--foreground {
-			transition: opacity $color-toggle-duration;
+			transition: opacity $anim-duration;
 			transition-delay: 0;
 		}
 
@@ -91,8 +102,8 @@ color-detail,
 	.detail-copy__color-toggle-cta {
 		@extend .button;
 		position: relative;
-		transition: opacity $color-toggle-duration, z-index $color-toggle-duration;
-		transition-delay: 0s, $color-toggle-duration;
+		transition: opacity $anim-duration;
+		//transition-delay: 0s, $color-toggle-duration;
 		z-index: 1;
 	}
 
@@ -101,10 +112,19 @@ color-detail,
 		opacity: 0;
 		position: absolute;
 		top: 0;
-		z-index: -1;
+		//z-index: -1;
 	}
 
 	.transition-overlay {
+
+
+		@include gradient-overlay;
+
+
+
+
+
+
 		//border: 2px solid red;
 		border-radius: 50%;
 		left: calc(50% - (#{$gradient-radius-h-orientation} / 2));
