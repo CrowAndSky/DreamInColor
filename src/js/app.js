@@ -8,6 +8,7 @@
             $scope.appState =
             {
                 isColorDetailDisplayed      : true,
+                isColorOnlyDisplayed        : false,
                 currentDetailColor          : '65BAAD',
                 currentDetailColorRGBA      : tinycolor(this.currentDetailColor).setAlpha(0.999999).toRgbString(),
                 currentDetailColorRGBzeroA  : tinycolor(this.currentDetailColor).setAlpha(0).toRgbString(),
@@ -16,10 +17,22 @@
                 historyColors               : ["c8e1e6","b9af5b","A9593A","9C8F76","555c64","8CBF3E","3b363e","65BAAD","aa8f52"],
                 favoriteColors              : [],
                 updateDetailColor : function () {
-                        this.currentDetailColorRGBA = tinycolor(this.currentDetailColor).setAlpha(0.999999).toRgbString();
-                        this.currentDetailColorRGBzeroA = tinycolor(this.currentDetailColor).setAlpha(0).toRgbString();
-                    }
+                    this.currentDetailColorRGBA = tinycolor(this.currentDetailColor).setAlpha(0.999999).toRgbString();
+                    this.currentDetailColorRGBzeroA = tinycolor(this.currentDetailColor).setAlpha(0).toRgbString();
+                }
             };
+
+            /*
+
+            $(this).attr("src", new-src-string);
+
+            $("img").one("load", function() {
+                // do stuff
+            }).each(function() {
+                if(this.complete) $(this).load();
+            });
+
+            */
 
 
         })

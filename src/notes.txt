@@ -47,6 +47,14 @@ ng-include="<var name>"; i.e.: ng-include="'header.html'"
 
 
 
+
+$("img").one("load", function() {
+  // do stuff
+}).each(function() {
+  if(this.complete) $(this).load();
+});
+
+
 angular.module('app')
 .factory('GithubSvc', function ($http) {
     return {
