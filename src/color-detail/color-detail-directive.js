@@ -27,17 +27,6 @@
                         console.log(thatAppState.currentDetailColorRGBzeroA);
                     };
 
-                    //this.setColorOnlyDisplayed = function(newColor) {
-                    //    thatAppState.isColorOnlyDisplayed = true;
-                    //    //thatAppState.favoriteColors.unshift(newColor);
-                    //    //thatAppState.isColorDetailDisplayed = false;
-                    //    console.log("appState.isColorOnlyDisplayed: " + thatAppState.isColorOnlyDisplayed);
-                    //};
-
-
-
-
-
                     /*
 
                     this.initDetail = function() {

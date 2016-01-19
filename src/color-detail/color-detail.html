@@ -8,7 +8,6 @@
     </div>
 
     <div class="transition-overlay" style="background: radial-gradient({{appState.currentDetailColorRGBzeroA}} 0%, {{appState.currentDetailColorRGBA}} 50%, {{appState.currentDetailColorRGBA}} 100%);"></div>
-    <!--<div class="transition-overlay" style="background: radial-gradient(#000 0%, #000 50%, {{appState.currentDetailColorRGBA}} 100%);"></div>-->
 
     <div class="detail-copy">
         <h1 class="detail-copy__color-name">Ocean Spray</h1>
@@ -16,10 +15,8 @@
         <div class="detail-copy__close-cta" ng-click="colorDetail.hideDetailView()">Close</div>
 
         <div class="detail-copy__color-toggle">
-            <!--<span class="detail-copy__color-toggle-cta detail-copy__scene-cta" ng-click="colorDetail.setColorOnlyDisplayed(true)">Show Only Color</span>-->
             <span class="detail-copy__color-cta" ng-click="appState.isColorOnlyDisplayed = true">Show Only Color</span>
             <span class="detail-copy__detail-cta" ng-click="appState.isColorOnlyDisplayed = false">Show Color Detail</span>
-            <!--<span class="detail-copy__color-toggle-cta detail-copy__color-only-cta&#45;&#45;color-displayed" ng-click="appState.isColorOnlyDisplayed = false">Show Full Scene</span>-->
         </div>
 
         <div class="detail-copy__add-to-faves-cta" ng-click="colorDetail.addToFavorites(appState.currentDetailColor)">Add to Favorites</div>
