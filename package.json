@@ -5,6 +5,10 @@
     "name": "Preston Williams",
     "url": "https://github.com/CrowAndSky"
   },
+  "scripts": {
+    "start": "npm run lite",
+    "lite": "lite-server"
+  },
   "devDependencies": {
     "gulp": "^3.8.6",
     "gulp-concat": "^2.3.3",
