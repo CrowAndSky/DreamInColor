@@ -1,4 +1,5 @@
-<div class="color-detail" ng-show="appState.isColorDetailDisplayed" ng-class="{'color-detail--color-only-displayed': appState.isColorOnlyDisplayed}">
+<!--<div class="color-detail" ng-class="myCsszVar">-->
+<div class="color-detail" ng-class="{'color-detail--color-only-displayed': appState.isColorOnlyDisplayed}">
     <div class="room-scene__wrapper" style="background-color:#{{appState.currentDetailColor}};">
         <svg  class="room-scene" version="1.1" xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
@@ -11,6 +12,13 @@
 
     <div class="detail-copy">
         <h1 class="detail-copy__color-name">Ocean Spray</h1>
+        <!--color-detail&#45;&#45;color-only-displayed-->
+        <p>
+            <input type="button" value="set" ng-click="myCsszVar='css2-class'">
+            <input type="button" value="clear" ng-click="myCsszVar=''">
+            <br>
+            <span ng-class="myCssVar2">CSS-Animated Text</span>
+        </p>
 
         <div class="detail-copy__close-cta" ng-click="colorDetail.hideDetailView()">Close</div>
 

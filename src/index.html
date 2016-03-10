@@ -33,7 +33,7 @@
     <scene-grid-items class="scene-grid__container"></scene-grid-items>
     <favorite-list-items class="color-list favorites-list"></favorite-list-items>
     <!--<color-detail ng-init="initDetail()"></color-detail>-->
-    <color-detail ng-init="initDetail()"></color-detail>
+    <color-detail ng-init="initDetail()" ng-show="appState.isColorDetailDisplayed" ></color-detail>
 
 </div>
 
@@ -41,6 +41,7 @@
 
 <script src="../lib/jquery-2.1.4.min.js" type="text/javascript"></script>
 <script src="../lib/angular.js" type="text/javascript"></script>
+<script src="../lib/angular-animate.min.js" type="text/javascript"></script>
 <script src="../lib/tinycolor.js" type="text/javascript"></script>
 <script src="../dist/js/dreamInColor.js" type="text/javascript"></script>
 

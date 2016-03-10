@@ -2,7 +2,7 @@
 
     'use strict';
 
-    angular.module('colorDetail')
+    angular.module('colorDetail', ['ngAnimate'])
         .directive('colorDetail', function() {
             return {
                 restrict: 'E',

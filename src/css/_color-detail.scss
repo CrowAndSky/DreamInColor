@@ -1,17 +1,16 @@
-$anim-duration: 2s;
+$anim-duration-no-units: 1;
+$anim-duration: #{$anim-duration-no-units}s;
+$gradient-anim-duration-in: $anim-duration-no-units * 2.8s;
+$gradient-anim-duration-out: $anim-duration-no-units * 0.5s;
 
-//@mixin gradient-overlay ($percent-expanded: 4, $overlay-anim-duration: $anim-duration * 1.8, $longer-side: horizontal, $gradient-radius-no-units: 100) {
-@mixin gradient-overlay ($percent-expanded: 4, $anim-direction: 'animating-in', $longer-side: horizontal, $gradient-radius-no-units: 100) {
-	//$overlay-anim-duration-short: $overlay-anim-duration * 0.66;
-	//$overlay-anim-duration-long: $overlay-anim-duration * 2;
-
+@mixin gradient-overlay ($percent-expanded: 4, $longer-side: horizontal, $gradient-radius-no-units: 100) {  //, $anim-direction: 'animating-in'
 	$gradient-radius: #{$gradient-radius-no-units * $percent-expanded}vw;
 	$gradient-offset: #{$gradient-radius};
-	$gradient-anim-duration: #{$anim-duration} * 2;
+	$gradient-anim-duration: $anim-duration-no-units * 2.8s;
 
-	@if $anim-direction == 'animating-out' {
-		$gradient-anim-duration: #{$anim-duration} \ 2;
-	}
+	//@if $anim-direction == 'animating-out' {
+	//	$gradient-anim-duration: $anim-duration-no-units * 0.5s;
+	//}
 
 	@if $longer-side == 'vertical' {
 		$gradient-radius: #{$gradient-radius-no-units * $percent-expanded}vh;
@@ -24,11 +23,8 @@ $anim-duration: 2s;
 	}
 
 	height: $gradient-radius;
-	//transition-property: opacity, height, width, top, left;
-	//transition-duration: $overlay-anim-duration-short, $overlay-anim-duration-long, $overlay-anim-duration-long, $overlay-anim-duration-long, $overlay-anim-duration-long;
-
-	transition-property: height, width, top, left;
-	transition-duration: $gradient-anim-duration, $gradient-anim-duration, $gradient-anim-duration, $gradient-anim-duration, $gradient-anim-duration;
+	//transition-property: height, width, top, left;
+	//transition-duration: $gradient-anim-duration, $gradient-anim-duration, $gradient-anim-duration, $gradient-anim-duration, $gradient-anim-duration;
 
 	width: $gradient-radius;
 }
@@ -48,9 +44,6 @@ color-detail,
 }
 
 .color-detail {
-	.room-scene__wrapper {
-	}
-
 	.room-scene__image {
 		transition: opacity $anim-duration;
 		transition-delay: calc(#{$anim-duration} / 2);
@@ -102,15 +95,36 @@ color-detail,
 		z-index: -1;
 	}
 
-	.transition-overlay {
+	.transition-overlay,
+	&--color-only-displayed-remove-active .transition-overlay {
+
+		//&-add, &-remove {
+		//	transition-property: height, width, top, left;
+		//	transition-duration: $gradient-anim-duration-in, $gradient-anim-duration-in, $gradient-anim-duration-in, $gradient-anim-duration-in;
+		//}
+		//
+		//&-remove {
+		//	transition-duration: $gradient-anim-duration-out, $gradient-anim-duration-out, $gradient-anim-duration-out, $gradient-anim-duration-out;
+		//}
+		//
+		//.css2-class,
+		//.css2-class-add.css2-class-add-active {
+		//	color: red;
+		//	font-size:3em;
+		//}
+		//
+		//.css2-class-remove.css2-class-remove-active {
+		//	font-size:1.0em;
+		//	color:black;
+		//}
+
 		@include gradient-overlay;
-		border: 2px solid red;
+		//border: 2px solid red;
 		border-radius: 50%;
-		//opacity: 0;
 		position: absolute;
 	}
 
-	&--color-only-displayed {
+	&--color-only-displayed, {
 		.room-scene__image {
 			opacity: 0;
 		}
@@ -125,16 +139,38 @@ color-detail,
 			z-index: 2;
 		}
 
-		.transition-overlay {
+		.transition-overlay,
+		&-add-active .transition-overlay {
 			@include gradient-overlay($percent-expanded: 0.05);
 		}
 
-		&.remove {
-			.transition-overlay {
-				@include gradient-overlay($anim-direction: 'animating-out');
-			}
-
+		&-add, &-remove {
+			transition-property: height, width, top, left;
+			transition-duration: $gradient-anim-duration-in, $gradient-anim-duration-in, $gradient-anim-duration-in, $gradient-anim-duration-in;
 		}
+
+		&-remove {
+			transition-duration: $gradient-anim-duration-out, $gradient-anim-duration-out, $gradient-anim-duration-out, $gradient-anim-duration-out;
+		}
+
+		//.css2-class,
+		//.css2-class-add.css2-class-add-active {
+		//	color: red;
+		//	font-size:3em;
+		//}
+		//
+		//.css2-class-remove.css2-class-remove-active {
+		//	font-size:1.0em;
+		//	color:black;
+		//}
+		//
+		//&.color-detail--color-only-displayed-remove {
+		//	display: none !important;
+		//	.transition-overlay {
+		//		@include gradient-overlay($anim-direction: 'animating-out');
+		//	}
+		//
+		//}
 	}
 
 } //end .color-detail
@@ -157,7 +193,7 @@ color-detail,
 
 			&.remove {
 				.transition-overlay {
-					@include gradient-overlay($longer-side: vertical, $anim-direction: 'animating-out');
+					@include gradient-overlay($longer-side: vertical);
 				}
 
 			}
