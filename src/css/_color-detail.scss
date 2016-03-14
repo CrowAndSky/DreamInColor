@@ -1,16 +1,12 @@
 $anim-duration-no-units: 1;
 $anim-duration: #{$anim-duration-no-units}s;
-$gradient-anim-duration-in: $anim-duration-no-units * 2.8s;
-$gradient-anim-duration-out: $anim-duration-no-units * 0.5s;
+$gradient-anim-duration-in: $anim-duration-no-units * 2.7s;
+$gradient-anim-duration-out: $anim-duration-no-units * 0.8s;
 
 @mixin gradient-overlay ($percent-expanded: 4, $longer-side: horizontal, $gradient-radius-no-units: 100) {  //, $anim-direction: 'animating-in'
 	$gradient-radius: #{$gradient-radius-no-units * $percent-expanded}vw;
 	$gradient-offset: #{$gradient-radius};
-	$gradient-anim-duration: $anim-duration-no-units * 2.8s;
-
-	//@if $anim-direction == 'animating-out' {
-	//	$gradient-anim-duration: $anim-duration-no-units * 0.5s;
-	//}
+	//$gradient-anim-duration: $anim-duration-no-units * 2.8s;
 
 	@if $longer-side == 'vertical' {
 		$gradient-radius: #{$gradient-radius-no-units * $percent-expanded}vh;
@@ -23,9 +19,6 @@ $gradient-anim-duration-out: $anim-duration-no-units * 0.5s;
 	}
 
 	height: $gradient-radius;
-	//transition-property: height, width, top, left;
-	//transition-duration: $gradient-anim-duration, $gradient-anim-duration, $gradient-anim-duration, $gradient-anim-duration, $gradient-anim-duration;
-
 	width: $gradient-radius;
 }
 
@@ -95,34 +88,13 @@ color-detail,
 		z-index: -1;
 	}
 
-	.transition-overlay,
-	&--color-only-displayed-remove-active .transition-overlay {
-
-		//&-add, &-remove {
-		//	transition-property: height, width, top, left;
-		//	transition-duration: $gradient-anim-duration-in, $gradient-anim-duration-in, $gradient-anim-duration-in, $gradient-anim-duration-in;
-		//}
-		//
-		//&-remove {
-		//	transition-duration: $gradient-anim-duration-out, $gradient-anim-duration-out, $gradient-anim-duration-out, $gradient-anim-duration-out;
-		//}
-		//
-		//.css2-class,
-		//.css2-class-add.css2-class-add-active {
-		//	color: red;
-		//	font-size:3em;
-		//}
-		//
-		//.css2-class-remove.css2-class-remove-active {
-		//	font-size:1.0em;
-		//	color:black;
-		//}
-
-		@include gradient-overlay;
-		//border: 2px solid red;
-		border-radius: 50%;
-		position: absolute;
-	}
+	//.transition-overlay {
+	////&--color-only-displayed-add-active .transition-overlay {
+	//	//@include gradient-overlay;
+	//	border: 1px solid red;
+	//	border-radius: 50%;
+	//	position: absolute;
+	//}
 
 	&--color-only-displayed, {
 		.room-scene__image {
@@ -139,41 +111,57 @@ color-detail,
 			z-index: 2;
 		}
 
-		.transition-overlay,
-		&-add-active .transition-overlay {
-			@include gradient-overlay($percent-expanded: 0.05);
-		}
+		//.transition-overlay {
+		////&-add-active .transition-overlay {
+		//	@include gradient-overlay($percent-expanded: 0.05);
+		//}
 
-		&-add, &-remove {
-			transition-property: height, width, top, left;
-			transition-duration: $gradient-anim-duration-in, $gradient-anim-duration-in, $gradient-anim-duration-in, $gradient-anim-duration-in;
-		}
-
-		&-remove {
-			transition-duration: $gradient-anim-duration-out, $gradient-anim-duration-out, $gradient-anim-duration-out, $gradient-anim-duration-out;
-		}
-
-		//.css2-class,
-		//.css2-class-add.css2-class-add-active {
-		//	color: red;
-		//	font-size:3em;
+		//&-add, &-remove {
+		//	transition-property: height, width, top, left;
+		//	transition-duration: $gradient-anim-duration-in, $gradient-anim-duration-in, $gradient-anim-duration-in, $gradient-anim-duration-in;
 		//}
 		//
-		//.css2-class-remove.css2-class-remove-active {
-		//	font-size:1.0em;
-		//	color:black;
-		//}
-		//
-		//&.color-detail--color-only-displayed-remove {
-		//	display: none !important;
-		//	.transition-overlay {
-		//		@include gradient-overlay($anim-direction: 'animating-out');
-		//	}
-		//
+		//&-remove {
+		//	transition-duration: $gradient-anim-duration-out, $gradient-anim-duration-out, $gradient-anim-duration-out, $gradient-anim-duration-out;
 		//}
 	}
 
 } //end .color-detail
+
+
+.transition-overlay {
+	//&--color-only-displayed-add-active .transition-overlay {
+	//@include gradient-overlay;
+	//border: 1px solid red;
+	border-radius: 50%;
+	position: absolute;
+	transition-property: height, width, top, left;
+	transition-duration: $gradient-anim-duration-in, $gradient-anim-duration-in, $gradient-anim-duration-in, $gradient-anim-duration-in;
+}
+
+
+.transition-overlay,
+.color-detail--color-only-displayed-remove-active .transition-overlay {
+	@include gradient-overlay;
+}
+
+.color-detail--color-only-displayed .transition-overlay,
+.color-detail--color-only-displayed-add-active .transition-overlay {
+//.color-detail--color-only-displayed-add-active .transition-overlay {
+	@include gradient-overlay($percent-expanded: 0.05);
+}
+
+.color-detail--color-only-displayed-add .transition-overlay,
+.color-detail--color-only-displayed-remove .transition-overlay {
+	//transition-property: height, width, top, left;
+	//transition-duration: $gradient-anim-duration-in, $gradient-anim-duration-in, $gradient-anim-duration-in, $gradient-anim-duration-in;
+}
+
+.color-detail--color-only-displayed-remove .transition-overlay {
+	transition-duration: $gradient-anim-duration-out, $gradient-anim-duration-out, $gradient-anim-duration-out, $gradient-anim-duration-out;
+}
+
+
 
 @media screen and (max-aspect-ratio: 20/19) {
 	.color-detail {
